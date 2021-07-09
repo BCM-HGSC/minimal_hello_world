@@ -137,7 +137,7 @@ You might want to have a script like this in your toolbox.
 ```bash
 #!/usr/bin/env bash
 
-TERMS='-name .eggs -prune -o -name .pytest_cache -prune -o -name __pycache__ -prune'
-TERMS="$TERMS -o -name build -prune -o -name dist -prune"
-find . -type d \( $TERMS -o -name \*.egg-info -prune \) -exec rm -rf "$@" {} \; -prune
+TERMS='-name .eggs -o -name .pytest_cache -o -name __pycache__'
+TERMS="$TERMS -o -name build -o -name dist"
+find . -type d \( $TERMS -o -name \*.egg-info \) -exec rm -rf "$@" {} \; -prune
 ```
